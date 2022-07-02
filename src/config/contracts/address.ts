@@ -9,3 +9,8 @@ export const aTronAddress: AddressType = {
   MAIN_NET: "",
   TEST_NET: "TE7X9zUVyk4bYVczpLYtN8e95zbxKBRqX2",
 };
+
+export const dexAddress: AddressType = {
+  MAIN_NET: "",
+  TEST_NET: "TPjt7FadaLMzks7SoYiyg3ywbsDWo5t6UJ",
+};

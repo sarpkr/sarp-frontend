@@ -1,33 +1,32 @@
-import BigNumber from "bignumber.js";
 import { useCallback, useEffect, useState } from "react";
 
 import { getATronContract } from "../utils/contract";
 import { getTronWeb } from "../utils/tronweb";
 
-const useFetchATronBallance = (address?: string) => {
+const useBalance = (address?: string) => {
   const tronWeb = getTronWeb();
   const contractInfo = getATronContract(tronWeb);
-  const [balance, setBalance] = useState<BigNumber>(new BigNumber(0));
+  const [balance, setBalance] = useState(tronWeb.BigNumber(0));
 
-  const fetchATronBallance = useCallback(async () => {
+  const fetchATronBalance = useCallback(async () => {
     if (address) {
       try {
         const _balance = await contractInfo?.contract.balanceOf(address).call();
         if (_balance._isBigNumber) {
-          setBalance(new BigNumber(_balance._hex));
+          setBalance(tronWeb.BigNumber(_balance._hex));
         }
       } catch (error) {
-        console.log("fetchATronBallance on useFetchATronBallance", error);
+        console.error("Failed to fetch ATron balance", error);
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [address]);
 
   useEffect(() => {
-    fetchATronBallance();
-  }, [fetchATronBallance]);
+    fetchATronBalance();
+  }, [fetchATronBalance]);
 
   return balance;
 };
 
-export default useFetchATronBallance;
+export default useBalance;

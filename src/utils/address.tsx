@@ -1,4 +1,4 @@
-import { MAIN_NET, TEST_NET, aTronAddress } from "../config/contracts/address";
+import {MAIN_NET, TEST_NET, aTronAddress, dexAddress} from "../config/contracts/address";
 
 const DEBUG = process.env.NODE_ENV !== "production";
 
@@ -10,4 +10,8 @@ const key = !DEBUG ? MAIN_NET : TEST_NET;
 
 export const getATronAddress = () => {
   return aTronAddress[key];
+};
+
+export const getDexAddress = () => {
+  return dexAddress[key];
 };

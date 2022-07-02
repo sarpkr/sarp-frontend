@@ -11,7 +11,7 @@ export const tronWeb = new TronWeb({
     ? "https://api.trongrid.io"
     : "https://api.shasta.trongrid.io",
   privateKey:
-    "0917d354496d4c78ef724d8e5db23718c4480d87b71da4b12567378b3a35d7b1",
+    "e16d9656bff38ab8a3d40065dcbc62bc28438ae1b08432261f760d5ab3d760c0",
 });
 
 export const getTronWeb = () =>

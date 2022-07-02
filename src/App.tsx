@@ -1,9 +1,9 @@
 import React, { lazy } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { Layout } from "./components";
+import "antd/dist/antd.css";
 
 const Main = lazy(() => import("./pages/main"));
-const Profile = lazy(() => import("./pages/profile"));
 
 const App = () => {
   return (
@@ -11,7 +11,6 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Main />} />
-          <Route path="/profile" element={<Profile />} />
         </Route>
       </Routes>
     </BrowserRouter>
