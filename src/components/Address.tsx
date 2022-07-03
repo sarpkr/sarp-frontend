@@ -3,17 +3,17 @@ import {NETWORKS} from "../config/constant";
 import { Typography } from "antd";
 
 interface OwnProps {
-    address: string;
+    address?: string;
     blockExplorer: string;
 }
 const { Text } = Typography;
 
 type Props = OwnProps;
-const blockExplorerLink = (address, blockExplorer) => `${blockExplorer || NETWORKS["mainnet"]}#/address/${address}`;
+const blockExplorerLink = (address: string, blockExplorer: string) => `${blockExplorer || NETWORKS["mainnet"]}#/address/${address}`;
 
 const Address: FunctionComponent<Props> = ({address, blockExplorer}) => {
     let displayAddress = address?.substring(0, 5) + "..." + address?.substring(-4);
-    const tronscanLink = blockExplorerLink(address, blockExplorer);
+    const tronscanLink = blockExplorerLink(address ?? "", blockExplorer);
 
     return (
       <Text copyable={{ text: address }}>

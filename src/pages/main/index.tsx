@@ -40,7 +40,7 @@ const Main = ({ ...rest }: Props) => {
 
               <Row gutter={4} align="middle">
                   <Col>
-                      Deposit:
+                      {'Deposit(TRX -> ATRX)'}
                   </Col>
                   <Col>
                       <Deposit />

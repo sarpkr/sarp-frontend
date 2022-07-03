@@ -2,10 +2,10 @@ import React from "react";
 import useBalance from "../hooks/useBalance";
 
 interface Props {
-   address?: string;
+    address?: string;
 }
 
- const Balance: React.FC<Props> = (props) => {
+const Balance: React.FC<Props> = (props) => {
     const balance = useBalance(props.address);
     let floatBalance = parseFloat("0.00");
     let usingBalance = balance;
@@ -14,7 +14,7 @@ interface Props {
         floatBalance = parseFloat(tronBalance);
     }
 
-    let displayBalance = floatBalance.toFixed(4);
+    let displayBalance = +floatBalance.toFixed(4) / (10 ** 6);
 
     return (
         <span
@@ -25,7 +25,7 @@ interface Props {
                 cursor: "pointer",
             }}
         >
-      {displayBalance}
+      {displayBalance} ATRX
     </span>
     );
 }
