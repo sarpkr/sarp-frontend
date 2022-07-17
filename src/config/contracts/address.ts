@@ -7,10 +7,10 @@ export type AddressType = {
 
 export const aTronAddress: AddressType = {
   MAIN_NET: "",
-  TEST_NET: "TE7X9zUVyk4bYVczpLYtN8e95zbxKBRqX2",
+  TEST_NET: "TAnAKe2PB1j7My5dA17qbp5GJ1VTQivTk7",
 };
 
 export const dexAddress: AddressType = {
   MAIN_NET: "",
-  TEST_NET: "TPjt7FadaLMzks7SoYiyg3ywbsDWo5t6UJ",
+  TEST_NET: "TC88j2C5BkmrQfmZ69X4BjbaQnG73VYUpk",
 };

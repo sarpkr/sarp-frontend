@@ -1,94 +1,56 @@
 [
   {
     "inputs": [
-      {
-        "name": "buyer",
-        "type": "address"
-      },
-      {
-        "name": "amountOfTRX",
-        "type": "uint256"
-      },
-      {
-        "name": "amountOfTokens",
-        "type": "uint256"
-      }
+      { "name": "buyer", "type": "address" },
+      { "name": "amountOfTRX", "type": "uint256" },
+      { "name": "amountOfTokens", "type": "uint256" }
     ],
     "name": "BuyTokens",
     "type": "Event"
   },
   {
     "inputs": [
-      {
-        "indexed": true,
-        "name": "previousOwner",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "name": "newOwner",
-        "type": "address"
-      }
+      { "name": "buyer", "type": "address" },
+      { "name": "tokenAmountToExchange", "type": "uint256" }
+    ],
+    "name": "ExchangeTokens",
+    "type": "Event"
+  },
+  {
+    "inputs": [
+      { "indexed": true, "name": "previousOwner", "type": "address" },
+      { "indexed": true, "name": "newOwner", "type": "address" }
     ],
     "name": "OwnershipTransferred",
     "type": "Event"
   },
   {
-    "outputs": [
-      {
-        "name": "amount",
-        "type": "uint256"
-      }
-    ],
-    "inputs": [
-      {
-        "name": "addr",
-        "type": "address"
-      }
-    ],
+    "outputs": [{ "name": "amount", "type": "uint256" }],
+    "inputs": [{ "name": "addr", "type": "address" }],
     "name": "balance",
     "stateMutability": "View",
     "type": "Function"
   },
   {
-    "outputs": [
-      {
-        "name": "tokenAmount",
-        "type": "uint256"
-      }
-    ],
+    "outputs": [{ "name": "tokenAmount", "type": "uint256" }],
     "name": "deposit",
     "stateMutability": "Payable",
     "type": "Function"
   },
   {
-    "inputs": [
-      {
-        "name": "tokenAmountToExchange",
-        "type": "uint256"
-      }
-    ],
+    "inputs": [{ "name": "tokenAmountToExchange", "type": "uint256" }],
     "name": "exchange",
     "stateMutability": "Nonpayable",
     "type": "Function"
   },
   {
-    "inputs": [
-      {
-        "name": "addr",
-        "type": "address"
-      }
-    ],
+    "inputs": [{ "name": "addr", "type": "address" }],
     "name": "init",
     "stateMutability": "Nonpayable",
     "type": "Function"
   },
   {
-    "outputs": [
-      {
-        "type": "address"
-      }
-    ],
+    "outputs": [{ "type": "address" }],
     "name": "owner",
     "stateMutability": "View",
     "type": "Function"
@@ -99,34 +61,10 @@
     "type": "Function"
   },
   {
-    "inputs": [
-      {
-        "name": "newOwner",
-        "type": "address"
-      }
-    ],
+    "inputs": [{ "name": "newOwner", "type": "address" }],
     "name": "transferOwnership",
     "stateMutability": "Nonpayable",
     "type": "Function"
   },
-  {
-    "outputs": [
-      {
-        "type": "uint256"
-      }
-    ],
-    "inputs": [
-      {
-        "type": "address"
-      }
-    ],
-    "name": "userAccounts",
-    "stateMutability": "View",
-    "type": "Function"
-  },
-  {
-    "name": "withdraw",
-    "stateMutability": "Nonpayable",
-    "type": "Function"
-  }
+  { "name": "withdraw", "stateMutability": "Nonpayable", "type": "Function" }
 ]

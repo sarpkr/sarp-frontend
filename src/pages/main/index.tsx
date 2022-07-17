@@ -1,54 +1,52 @@
-/** @jsxImportSource @emotion/react */
-import {HTMLAttributes} from "react";
-import useBalance from "../../hooks/useBalance";
-import useGetWalletInfo from "../../hooks/useGetWalletInfo";
-import {Button, Card, Col, DatePicker, Divider, Input, Progress, Row, Slider, Spin, Switch} from "antd";
-import Address from "../../components/Address";
-import {NETWORKS} from "../../config/constant";
-import Balance from "../../components/Balance";
+import { Col, Divider, Row, Tabs } from "antd";
 import Deposit from "../../components/Deposit";
+import Exchange from "../../components/Exchange";
+import CommonInfo from "../../components/CommonInfo";
 
-interface Props extends HTMLAttributes<HTMLDivElement> {}
+const { TabPane } = Tabs;
 
-const Main = ({ ...rest }: Props) => {
-  const { address, isMainNet, balance } = useGetWalletInfo();
-  const aTronBalance = useBalance(address);
-
-  const blockExplorer = isMainNet ? NETWORKS["mainnet"].blockExplorer : NETWORKS["testnet"].blockExplorer
-
+const Main = () => {
   return (
-      <div>
-          {/*
-        ⚙️ Here is an example UI that displays and sets the purpose in your smart contract:
-      */}
-          <div style={{ border: "1px solid #cccccc", padding: 16, width: 'fit-content', margin: "auto", marginTop: 64 }}>
-              <h2>ATron Vending Machine</h2>
-              <Divider />
-              Your Address:
-              <Address address={address} blockExplorer={blockExplorer} />
-              <Divider />
-              Your Balance:
-              <Balance address={address} />
-              <Divider />
-              Your Contract Address:
-              <Address
-                  // TODO: .env
-                  address={"TPjt7FadaLMzks7SoYiyg3ywbsDWo5t6UJ"}
-                  blockExplorer={blockExplorer}
-              />
-              <Divider />
+    <div>
+      <div
+        style={{
+          border: "1px solid #cccccc",
+          padding: 16,
+          width: "fit-content",
+          margin: "auto",
+          marginTop: 64,
+        }}
+      >
+        <h2>ATron Vending Machine</h2>
+        <Tabs defaultActiveKey="Deposit">
+          <TabPane tab="Deposit" key="1">
+            <CommonInfo />
 
-              <Row gutter={4} align="middle">
-                  <Col>
-                      {'Deposit(TRX -> ATRX)'}
-                  </Col>
-                  <Col>
-                      <Deposit />
-                  </Col>
-              </Row>
-              <Divider />
-          </div>
+            <Row gutter={4} align="middle">
+              <Col>{"Deposit(TRX -> ATRX)"}</Col>
+              <Col>
+                <Deposit />
+              </Col>
+            </Row>
+
+            <Divider />
+          </TabPane>
+
+          <TabPane tab="Exchange" key="2">
+            <CommonInfo />
+
+            <Row gutter={4} align="middle">
+              <Col>{"Exchange(ATRX -> TRX)"}</Col>
+              <Col>
+                <Exchange />
+              </Col>
+            </Row>
+
+            <Divider />
+          </TabPane>
+        </Tabs>
       </div>
+    </div>
   );
 };
 
